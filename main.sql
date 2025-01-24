@@ -21,31 +21,31 @@ INSERT INTO pet (name,owner,species,sex,checkups,birth,death)VALUES
 
 SELECT * FROM pet;
 
-SELECT * FROM pet WHERE sex = "m"; 
+SELECT * FROM pet WHERE sex = 'm'; 
 
 SELECT DISTINCT owner FROM pet;
 
-SELECT owner FROM pet WHERE sex = "m";
+SELECT owner FROM pet WHERE sex = 'm';
 
-SELECT name, species, sex FROM pet WHERE species = "snake" OR species = "bird";
+SELECT name, species, sex FROM pet WHERE species = 'snake' OR species = 'bird';
 
 
 -- Questions - 1
 
 -- Q1-1
-SELECT owner, name FROM pet WHERE sex = "f";
+SELECT owner, name FROM pet WHERE sex = 'f';
 
 -- Q1-2
-SELECT name, birth FROM pet WHERE species = "dog";
+SELECT name, birth FROM pet WHERE species = 'dog';
 
 -- Q1-3
-SELECT DISTINCT owner FROM pet WHERE species = "bird";
+SELECT DISTINCT owner FROM pet WHERE species = 'bird';
 
 -- Q1-4
-SELECT DISTINCT species FROM pet WHERE sex = "f";
+SELECT DISTINCT species FROM pet WHERE sex = 'f';
 
 -- Q1-5
-SELECT name, birth FROM pet WHERE species = "cat" OR species = "bird";
+SELECT name, birth FROM pet WHERE species = 'cat' OR species = 'bird';
 
 -- Q1-6
-SELECT name, species FROM pet WHERE species = "cat" OR species = "bird" AND sex = "f";
+SELECT name, species FROM pet WHERE species = 'cat' OR species = 'bird' AND sex = 'f';
