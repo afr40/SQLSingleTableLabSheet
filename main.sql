@@ -49,3 +49,28 @@ SELECT name, birth FROM pet WHERE species = 'cat' OR species = 'bird';
 
 -- Q1-6
 SELECT name, species FROM pet WHERE species = 'cat' OR species = 'bird' AND sex = 'f';
+
+
+SELECT name FROM pet WHERE sex < "m";
+
+
+-- Questions - 2
+
+-- Q2-1
+SELECT owner, name FROM pet WHERE name LIKE '%er' OR '%all';
+
+-- Q2-2
+SELECT name FROM pet WHERE name LIKE '%e%' OR 'E%';
+
+-- Q2-3
+SELECT name FROM pet WHERE name NOT LIKE '%fy';
+
+-- Q2-4
+SELECT name FROM pet WHERE LENGTH(owner) = 4;
+
+-- Q2-5 / Q2-6
+-- Add another entry with a name that ends and starts with A
+INSERT INTO pet (name,owner,species,sex,checkups,birth,death)VALUES 
+('Miso','Anna','cat','f',5,'2001-02-04',NULL);
+
+SELECT DISTINCT owner FROM pet WHERE owner REGEXP '^[A-E].*[a-e]$';
