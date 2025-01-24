@@ -72,5 +72,43 @@ SELECT name FROM pet WHERE LENGTH(owner) = 4;
 -- Add another entry with a name that ends and starts with A
 INSERT INTO pet (name,owner,species,sex,checkups,birth,death)VALUES 
 ('Miso','Anna','cat','f',5,'2001-02-04',NULL);
-
 SELECT DISTINCT owner FROM pet WHERE owner REGEXP '^[A-E].*[a-e]$';
+
+
+SELECT name, birth FROM pet ORDER BY birth; 
+SELECT name, birth FROM pet ORDER BY birth DESC; 
+SELECT name, species, birth FROM pet ORDER BY species, birth DESC;
+
+SELECT name, birth, species FROM pet ORDER BY species DESC, birth; 
+
+SELECT name FROM pet WHERE strftime('%m',birth) = strftime('%m','12');
+
+SELECT name, strftime('%m', birth) AS Month FROM pet; 
+SELECT name, strftime('%m', birth) AS Month FROM pet WHERE death IS NULL;
+
+SELECT owner, name, (checkups * 20) AS income FROM pet;
+SELECT owner, name, birth, MIN(strftime('%Y',birth)) AS birth FROM pet GROUP BY owner;
+
+
+-- Questions - 3
+
+-- Q3-1
+SELECT owner, AVG(checkups) AS 'Average Checkups' FROM pet GROUP BY owner;
+
+-- Q3-2
+SELECT species, COUNT(species) AS 'Number of Species' FROM pet GROUP BY species;
+
+-- Q3-3
+SELECT owner, species, COUNT(species) AS 'NoSpecies' FROM pet GROUP BY owner, species;
+
+-- Q3-4
+SELECT owner, COUNT(DISTINCT species) AS 'No Distinct Species' FROM pet GROUP BY owner;
+
+-- Q3-5
+SELECT sex, COUNT(sex) AS 'No of each Gender' FROM pet WHERE sex != '' AND sex IS NOT NULL GROUP BY sex;
+
+-- Q3-6
+SELECT owner, COUNT(species) AS 'No of Birds' FROM pet WHERE species = 'bird' GROUP BY owner;
+
+-- Q3-7
+SELECT owner, SUM(checkups) AS 'Total Checkups' FROM pet GROUP BY owner;
